@@ -59,6 +59,8 @@
 - name: create the nagios object files
   template: src={{ item + ".j2" }}
             dest=/etc/nagios/ansible-managed/{{ item }}
+  owner: root
+  group: nagios
   with_items:
     - webservers.cfg
     - dbservers.cfg
